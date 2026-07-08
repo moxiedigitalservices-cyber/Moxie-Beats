@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Moxxie Beats</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            MOXXIE BEATS
+        </div>
+    
+        <div class="search-box">
+    
+            <input
+                type="text"
+                id="search"
+                placeholder="Search beats or artists...">
+    
+        </div>
+    
+        <nav>
+    
+            <a href="index.html">Home</a>
+    
+            <a href="cart.html">
+                🛒 Cart
+                <span id="cart-count">0</span>
+            </a>
+    
+        </nav>
+    
+    </header>
+
+<section class="hero">
+
+    <h1>
+        Premium Instrumentals.<br>
+        Instant Downloads.
+    </h1>
+
+    <p>
+
+        Afro • Hip-Hop • Trap • Dancehall • Amapiano
+
+    </p>
+
+    <button
+        onclick="document.getElementById('beats').scrollIntoView({behavior:'smooth'})">
+
+        Browse Beats
+
+    </button>
+
+</section>
+
+<section id="beats">
+
+    <h2>
+        Featured Beats
+    </h2>
+
+    <div id="beats-container">
+
+    </div>
+
+</section>
+
+<script src="./js/api.js"></script>
+<script src="./js/featured.js"></script>
+
+</body>
+</html>

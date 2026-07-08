@@ -1,0 +1,290 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins', sans-serif;
+
+    background:#111;
+
+    color:white;
+
+}
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 60px;
+
+    background:#181818;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#00d084;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin-left:25px;
+
+}
+
+.hero{
+
+    min-height:60vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.hero h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:20px;
+
+    color:#bbb;
+
+    margin-bottom:30px;
+
+}
+
+.hero button{
+
+    background:#00d084;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.hero button:hover{
+
+    opacity:.9;
+
+}
+
+#beats{
+
+    padding:50px;
+
+}
+
+#beats h2{
+
+    margin-bottom:35px;
+
+}
+
+#beats-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill, 320px);
+
+    justify-content:center;
+
+    gap:30px;
+
+}
+
+.beat-card{
+
+    background:#1b1b1b;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+}
+
+.beat-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.beat-cover{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:contain;
+
+    background:#222;
+
+    padding:15px;
+
+}
+
+.beat-info{
+
+    padding:20px;
+
+}
+
+.beat-info h2{
+
+    margin-bottom:8px;
+
+}
+
+.beat-info p{
+
+    color:#aaa;
+
+    margin-bottom:10px;
+
+}
+
+.beat-info h3{
+
+    color:#00d084;
+
+    margin-bottom:20px;
+
+}
+
+.beat-info audio{
+
+    width:100%;
+
+    margin-bottom:20px;
+
+}
+
+.beat-info button{
+
+    width:100%;
+
+    background:#00d084;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.artist{
+    color:#00d084;
+    font-weight:bold;
+    margin:10px 0;?
+}
+
+.meta{
+    color:#888;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.beat-card{
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.beat-cover{
+    background:#222;
+}
+
+.beat-info button:hover{
+    transform:scale(1.03);
+    transition:.25s;
+}
+
+.search-box{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.search-box input{
+
+    width:400px;
+
+    max-width:100%;
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:25px;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+#cart-count{
+
+    background:#00d084;
+
+    color:#111;
+
+    border-radius:50%;
+
+    padding:3px 8px;
+
+    margin-left:8px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
