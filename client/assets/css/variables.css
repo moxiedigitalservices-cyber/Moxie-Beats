@@ -1,0 +1,15 @@
+:root{
+
+    --bg:#0f1115;
+    --sidebar:#171b22;
+    --card:#1d222b;
+    --green:#2AF598;
+    --text:#ffffff;
+    --muted:#9aa4b2;
+    --border:#2a2f39;
+
+    --radius:14px;
+
+    --shadow:0 12px 30px rgba(0,0,0,.35);
+
+}

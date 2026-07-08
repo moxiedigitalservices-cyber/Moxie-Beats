@@ -35,6 +35,11 @@ const BeatSchema = new mongoose.Schema({
         unique: true
     },
 
+    artwork:{
+        type:String,
+        default:""
+    },
+
     artist: String,
 
     genre: String,

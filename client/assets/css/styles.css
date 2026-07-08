@@ -124,7 +124,7 @@ nav a{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fill, 320px);
+    grid-template-columns:repeat(auto-fill, 360px);
 
     justify-content:center;
 
@@ -141,6 +141,8 @@ nav a{
     overflow:hidden;
 
     transition:.3s;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
 
 }
 
@@ -192,11 +194,23 @@ nav a{
 
 }
 
-.beat-info audio{
+.artist{
 
-    width:100%;
+    color:#00d084;
 
-    margin-bottom:20px;
+    font-weight:bold;
+
+    margin:10px 0;
+
+}
+
+.meta{
+
+    color:#888;
+
+    font-size:14px;
+
+    margin-bottom:15px;
 
 }
 
@@ -218,29 +232,12 @@ nav a{
 
 }
 
-.artist{
-    color:#00d084;
-    font-weight:bold;
-    margin:10px 0;?
-}
-
-.meta{
-    color:#888;
-    font-size:14px;
-    margin-bottom:15px;
-}
-
-.beat-card{
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-}
-
-.beat-cover{
-    background:#222;
-}
-
 .beat-info button:hover{
+
     transform:scale(1.03);
+
     transition:.25s;
+
 }
 
 .search-box{
@@ -286,5 +283,156 @@ nav a{
     font-size:13px;
 
     font-weight:bold;
+
+}
+
+/* ---------- WaveSurfer Player ---------- */
+
+.wave-player{
+    display:flex;
+    align-items:center;
+    width:100%;
+    margin:15px 0;
+    gap:8px;
+}
+
+.play-btn{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#00d084;
+    color:#111;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+    padding:0;
+}
+
+.waveform-wrapper{
+    flex:1;
+    min-width:0;
+}
+
+.waveform{
+    width:100%;
+    height:36px;
+}
+
+.time{
+
+    width:62px;
+
+    text-align:right;
+
+    font-family:monospace;
+
+    font-size:12px;
+
+    color:#999;
+
+    white-space:nowrap;
+
+    flex-shrink:0;
+
+}
+
+.cart-item{
+
+    display:flex;
+
+    gap:20px;
+
+    background:#1b1b1b;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+}
+
+
+.cart-cover{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+
+.cart-info{
+
+    flex:1;
+
+}
+
+
+.cart-info h3{
+
+    color:#00d084;
+
+}
+
+
+.cart-info button{
+
+    margin-top:10px;
+
+    background:#333;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+
+.cart-summary{
+
+    margin-top:30px;
+
+}
+
+.checkout-box{
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+.checkout-box input{
+
+    flex:1;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    border:none;
+
+    font-size:15px;
 
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cart</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
@@ -16,18 +16,46 @@ rel="stylesheet">
 <body>
 
     <header>
+
         <h1>Your Cart 🛒</h1>
-        <a href="index.html">Back</a>
+    
+        <a href="index.html">
+            Continue Shopping
+        </a>
+    
     </header>
+    
+    <main id="cart">
+    
+        <div id="cart-container"></div>
+    
+        <div class="cart-summary">
+    
+            <h2 id="cart-total">
+                Total: $0.00
+            </h2>
+    
+            <div class="checkout-box">
 
-    <div id="cart-container"></div>
+                <input
+                    type="email"
+                    id="customer-email"
+                    placeholder="Enter your email"
+                    required
+                >
+            
+                <button id="checkout-btn">
+                    Proceed to Checkout
+                </button>
+            
+            </div>
+    
+        </div>
+    
+    </main>
 
-    <button id="checkout-btn">
-        Proceed to Checkout
-    </button>
-
-    <script src="./js/api.js"></script>
-    <script src="./js/cart.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/cart.js"></script>
 
 </body>
 </html>
