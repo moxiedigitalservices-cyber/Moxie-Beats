@@ -42,6 +42,12 @@ const BeatSchema = new mongoose.Schema({
 
     artist: String,
 
+    price: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+
     genre: String,
 
     subGenre: String,

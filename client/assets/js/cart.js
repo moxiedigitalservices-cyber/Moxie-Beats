@@ -154,8 +154,21 @@ if(!email){
 
     const data = await res.json();
 
+console.log("CHECKOUT RESPONSE:", data);
 
-    window.location.href = data.url;
+
+if(!data.url){
+
+    alert(
+        data.message || "Checkout failed"
+    );
+
+    return;
+
+}
+
+
+window.location.href = data.url;
 
 
 });

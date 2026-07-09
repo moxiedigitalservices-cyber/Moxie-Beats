@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Purchase = require("../models/Purchase");
 const paynow = require("../config/paynow");
+const sendDownloadEmail = require("../config/email");
 
 
 router.get("/result", async (req, res) => {
@@ -35,25 +36,37 @@ router.get("/result", async (req, res) => {
         if(status.paid){
 
             const purchase =
-                await Purchase.findOne({
-                    paymentReference: pollUrl
-                });
+    await Purchase.findOne({
+        paymentReference: pollUrl
+    })
+    .populate("beats");
 
 
 
-            if(purchase){
+    if(purchase && purchase.status !== "paid"){
 
-                purchase.status = "paid";
-
-                await purchase.save();
-
-
-                console.log(
-                    "✅ Purchase marked as paid:",
-                    purchase._id
-                );
-
-            }
+        purchase.status = "paid";
+                
+                    await purchase.save();
+                
+                
+                    const downloadUrl =
+`${process.env.STORE_URL}/download.html/${purchase.downloadToken}`;
+                
+                
+                    await sendDownloadEmail(
+                        purchase.customerEmail,
+                        downloadUrl,
+                        purchase.beats
+                    );
+                
+                
+                    console.log(
+                        "✅ Purchase completed:",
+                        purchase._id
+                    );
+                
+                }
 
         }
 

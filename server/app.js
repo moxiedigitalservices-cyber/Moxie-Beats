@@ -15,6 +15,7 @@ app.use("/api/beats", require("./routes/beats"));
 app.use("/api/admin", require("./routes/admin"));
 app.use("/api/cart", require("./routes/checkout"));
 app.use("/api/paynow", require("./routes/paynow"));
+app.use("/api/download", require("./routes/download"));
 
 // Test Route
 app.get("/api/health", (req, res) => {
