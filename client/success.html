@@ -4,16 +4,11 @@
 <head>
 
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Payment Successful | Moxxie Digital</title>
 
-    <link rel="stylesheet" href="./css/styles.css">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -22,47 +17,257 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            background:#0d0d0d;
+
+            color:white;
+
+            min-height:100vh;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            padding:20px;
+
+        }
+
+        .card{
+
+            background:#171717;
+
+            width:100%;
+
+            max-width:650px;
+
+            padding:50px;
+
+            border-radius:20px;
+
+            text-align:center;
+
+            box-shadow:0 15px 40px rgba(0,0,0,.45);
+
+            animation:fade .5s ease;
+
+        }
+
+        @keyframes fade{
+
+            from{
+
+                opacity:0;
+                transform:translateY(20px);
+
+            }
+
+            to{
+
+                opacity:1;
+                transform:translateY(0);
+
+            }
+
+        }
+
+        .check{
+
+            width:100px;
+
+            height:100px;
+
+            margin:auto;
+
+            margin-bottom:30px;
+
+            border-radius:50%;
+
+            background:#00d084;
+
+            color:#111;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            font-size:55px;
+
+            font-weight:bold;
+
+        }
+
+        h1{
+
+            font-size:38px;
+
+            margin-bottom:15px;
+
+        }
+
+        p{
+
+            color:#bdbdbd;
+
+            line-height:1.8;
+
+            margin-bottom:18px;
+
+        }
+
+        .notice{
+
+            margin-top:30px;
+
+            background:#202020;
+
+            padding:20px;
+
+            border-radius:12px;
+
+        }
+
+        .notice strong{
+
+            color:#00d084;
+
+        }
+
+        .btn{
+
+            display:inline-block;
+
+            margin-top:35px;
+
+            padding:15px 35px;
+
+            background:#00d084;
+
+            color:#111;
+
+            text-decoration:none;
+
+            font-weight:600;
+
+            border-radius:10px;
+
+            transition:.25s;
+
+        }
+
+        .btn:hover{
+
+            transform:translateY(-2px);
+
+            opacity:.95;
+
+        }
+
+        @media(max-width:700px){
+
+            .card{
+
+                padding:35px 25px;
+
+            }
+
+            h1{
+
+                font-size:28px;
+
+            }
+
+            .check{
+
+                width:80px;
+
+                height:80px;
+
+                font-size:42px;
+
+            }
+
+            p{
+
+                font-size:15px;
+
+            }
+
+            .btn{
+
+                width:100%;
+
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<header>
+<div class="card">
 
-    <div class="logo">
-        Moxxie Digital
-    </div>
+    <div class="check">
 
-</header>
-
-<section class="hero">
-
-    <div class="success-card">
-
-        <div class="success-icon">
-            ✅
-        </div>
-
-        <h1>Payment Received</h1>
-
-        <p>
-            Thank you for purchasing from <strong>Moxxie Digital</strong>.
-        </p>
-
-        <p>
-            We're confirming your payment with Paynow.
-        </p>
-
-        <p>
-            As soon as your payment is confirmed, your download link will be sent to your email automatically.
-        </p>
-
-        <button onclick="location.href='index.html'">
-            Continue Shopping
-        </button>
+        ✓
 
     </div>
 
-</section>
+    <h1>Payment Successful</h1>
+
+    <p>
+
+        Thank you for purchasing from
+
+        <strong>Moxxie Digital.</strong>
+
+    </p>
+
+    <p>
+
+        Your payment has been received and verified successfully.
+
+    </p>
+
+    <div class="notice">
+
+        <p>
+
+            <strong>Your download link has been sent to your email.</strong>
+
+        </p>
+
+        <p>
+
+            If you don't see it within a few minutes, please check your Spam or Promotions folder.
+
+        </p>
+
+    </div>
+
+    <a href="/" class="btn">
+
+        Continue Shopping
+
+    </a>
+
+</div>
 
 </body>
 
