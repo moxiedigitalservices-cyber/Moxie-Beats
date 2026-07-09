@@ -154,8 +154,6 @@ if(!email){
 
     const data = await res.json();
 
-console.log("CHECKOUT RESPONSE:", data);
-
 
 if(!data.url){
 

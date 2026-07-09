@@ -40,8 +40,6 @@ router.post("/checkout", async (req, res) => {
         });
 
 
-        console.log("BEATS:", beatList);
-
 
         if(beatList.length === 0){
 
@@ -62,19 +60,9 @@ router.post("/checkout", async (req, res) => {
 
 
         beatList.forEach(beat => {
-
-            console.log("INSIDE LOOP:", beat);
-            console.log("KEYS:", Object.keys(beat));
         
         
             const price = Number(beat._doc.price);
-        
-        
-            console.log(
-                "ADDING:",
-                beat.title,
-                price
-            );
         
         
             payment.add(
@@ -86,12 +74,6 @@ router.post("/checkout", async (req, res) => {
             total += price;
         
         });
-
-
-        console.log(
-            "FINAL TOTAL:",
-            total
-        );
 
 
         if(Number.isNaN(total)){
@@ -125,12 +107,6 @@ router.post("/checkout", async (req, res) => {
         // Send payment to Paynow
 
         const response = await paynow.send(payment);
-
-
-        console.log(
-            "PAYNOW RESPONSE:",
-            response
-        );
 
 
         if(response.success){

@@ -51,7 +51,7 @@ router.get("/result", async (req, res) => {
                 
                 
                     const downloadUrl =
-`${process.env.STORE_URL}/download.html/${purchase.downloadToken}`;
+`${process.env.FRONTEND_URL}/download.html?token=${purchase.downloadToken}`;
                 
                 
                     await sendDownloadEmail(
