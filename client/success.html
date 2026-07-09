@@ -3,271 +3,394 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Payment Successful | Moxxie Digital</title>
+<title>Payment Successful | Moxxie Digital</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
-    <style>
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<style>
 
-        body{
+*{
 
-            font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
 
-            background:#0d0d0d;
+}
 
-            color:white;
 
-            min-height:100vh;
+body{
 
-            display:flex;
+font-family:'Poppins',sans-serif;
 
-            justify-content:center;
+background:
+radial-gradient(circle at top,#1f1f1f,#0b0b0b);
 
-            align-items:center;
+color:white;
 
-            padding:20px;
+min-height:100vh;
 
-        }
+display:flex;
 
-        .card{
+align-items:center;
 
-            background:#171717;
+justify-content:center;
 
-            width:100%;
+padding:20px;
 
-            max-width:650px;
+}
 
-            padding:50px;
 
-            border-radius:20px;
+.success-card{
 
-            text-align:center;
+background:#171717;
 
-            box-shadow:0 15px 40px rgba(0,0,0,.45);
+width:100%;
 
-            animation:fade .5s ease;
+max-width:620px;
 
-        }
+padding:45px;
 
-        @keyframes fade{
+border-radius:24px;
 
-            from{
+text-align:center;
 
-                opacity:0;
-                transform:translateY(20px);
+box-shadow:
+0 20px 60px rgba(0,0,0,.5);
 
-            }
+animation:slide .6s ease;
 
-            to{
+}
 
-                opacity:1;
-                transform:translateY(0);
 
-            }
+@keyframes slide{
 
-        }
+from{
 
-        .check{
+opacity:0;
+transform:translateY(30px);
 
-            width:100px;
+}
 
-            height:100px;
+to{
 
-            margin:auto;
+opacity:1;
+transform:translateY(0);
 
-            margin-bottom:30px;
+}
 
-            border-radius:50%;
+}
 
-            background:#00d084;
 
-            color:#111;
+.brand{
 
-            display:flex;
+font-size:18px;
 
-            align-items:center;
+font-weight:700;
 
-            justify-content:center;
+letter-spacing:2px;
 
-            font-size:55px;
+color:#00d084;
 
-            font-weight:bold;
+margin-bottom:35px;
 
-        }
+}
 
-        h1{
 
-            font-size:38px;
 
-            margin-bottom:15px;
+.success-icon{
 
-        }
+width:110px;
 
-        p{
+height:110px;
 
-            color:#bdbdbd;
+margin:0 auto 30px;
 
-            line-height:1.8;
+background:#00d084;
 
-            margin-bottom:18px;
+color:#111;
 
-        }
+border-radius:50%;
 
-        .notice{
+display:flex;
 
-            margin-top:30px;
+align-items:center;
 
-            background:#202020;
+justify-content:center;
 
-            padding:20px;
+font-size:60px;
 
-            border-radius:12px;
+font-weight:bold;
 
-        }
+box-shadow:
 
-        .notice strong{
+0 0 30px rgba(0,208,132,.35);
 
-            color:#00d084;
+}
 
-        }
 
-        .btn{
 
-            display:inline-block;
+h1{
 
-            margin-top:35px;
+font-size:36px;
 
-            padding:15px 35px;
+margin-bottom:15px;
 
-            background:#00d084;
+}
 
-            color:#111;
 
-            text-decoration:none;
 
-            font-weight:600;
+.message{
 
-            border-radius:10px;
+color:#bbb;
 
-            transition:.25s;
+line-height:1.8;
 
-        }
+margin-bottom:25px;
 
-        .btn:hover{
+}
 
-            transform:translateY(-2px);
 
-            opacity:.95;
 
-        }
+.info-box{
 
-        @media(max-width:700px){
+background:#222;
 
-            .card{
+border-radius:15px;
 
-                padding:35px 25px;
+padding:25px;
 
-            }
+margin:30px 0;
 
-            h1{
+}
 
-                font-size:28px;
 
-            }
 
-            .check{
+.info-box h3{
 
-                width:80px;
+color:#00d084;
 
-                height:80px;
+margin-bottom:10px;
 
-                font-size:42px;
+}
 
-            }
 
-            p{
 
-                font-size:15px;
+.info-box p{
 
-            }
+color:#aaa;
 
-            .btn{
+font-size:14px;
 
-                width:100%;
+line-height:1.7;
 
-            }
+}
 
-        }
 
-    </style>
+
+.email{
+
+color:white;
+
+font-weight:600;
+
+}
+
+
+
+.button{
+
+display:inline-block;
+
+background:#00d084;
+
+color:#111;
+
+text-decoration:none;
+
+font-weight:700;
+
+padding:15px 40px;
+
+border-radius:12px;
+
+transition:.25s;
+
+}
+
+
+
+.button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+
+0 10px 25px rgba(0,208,132,.25);
+
+}
+
+
+
+.footer{
+
+margin-top:35px;
+
+font-size:12px;
+
+color:#777;
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.success-card{
+
+padding:30px 20px;
+
+}
+
+
+h1{
+
+font-size:28px;
+
+}
+
+
+.success-icon{
+
+width:85px;
+
+height:85px;
+
+font-size:45px;
+
+}
+
+
+.button{
+
+width:100%;
+
+}
+
+
+}
+
+
+
+</style>
 
 </head>
 
+
 <body>
 
-<div class="card">
 
-    <div class="check">
+<div class="success-card">
 
-        ✓
 
-    </div>
+<div class="brand">
 
-    <h1>Payment Successful</h1>
-
-    <p>
-
-        Thank you for purchasing from
-
-        <strong>Moxxie Digital.</strong>
-
-    </p>
-
-    <p>
-
-        Your payment has been received and verified successfully.
-
-    </p>
-
-    <div class="notice">
-
-        <p>
-
-            <strong>Your download link has been sent to your email.</strong>
-
-        </p>
-
-        <p>
-
-            If you don't see it within a few minutes, please check your Spam or Promotions folder.
-
-        </p>
-
-    </div>
-
-    <a href="/" class="btn">
-
-        Continue Shopping
-
-    </a>
+MOXXIE DIGITAL
 
 </div>
+
+
+
+<div class="success-icon">
+
+✓
+
+</div>
+
+
+
+<h1>
+
+Payment Successful
+
+</h1>
+
+
+
+<p class="message">
+
+Thank you for your purchase.
+
+Your payment has been verified successfully.
+
+</p>
+
+
+
+
+<div class="info-box">
+
+
+<h3>
+
+🎵 Your Beat Is Ready
+
+</h3>
+
+
+<p>
+
+A download link has been sent to:
+
+</p>
+
+
+<p class="email">
+
+your email address
+
+</p>
+
+
+<p>
+
+Check your inbox and spam folder if you don't see it immediately.
+
+</p>
+
+
+</div>
+
+
+
+
+<a href="/" class="button">
+
+Continue Shopping
+
+</a>
+
+
+
+<div class="footer">
+
+© Moxxie Digital — Independent Music Marketplace
+
+</div>
+
+
+
+</div>
+
 
 </body>
 

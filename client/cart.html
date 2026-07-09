@@ -1,61 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Cart</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Cart | Moxxie Digital</title>
+
     <link rel="stylesheet" href="./assets/css/styles.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 </head>
+
+
 <body>
 
-    <header>
 
-        <h1>Your Cart 🛒</h1>
-    
-        <a href="index.html">
-            Continue Shopping
-        </a>
-    
-    </header>
-    
-    <main id="cart">
-    
-        <div id="cart-container"></div>
-    
+<header class="cart-header">
+
+    <div>
+
+        <h1>
+            Your Cart 🛒
+        </h1>
+
+        <p>
+            Review your beat before checkout
+        </p>
+
+    </div>
+
+
+    <a href="index.html" class="back-link">
+        ← Continue Shopping
+    </a>
+
+
+</header>
+
+
+
+<main class="cart-page">
+
+
+    <section class="cart-card">
+
+
+        <div id="cart-container">
+
+            <!-- Cart items inserted by JS -->
+
+        </div>
+
+
+
         <div class="cart-summary">
-    
+
+
             <h2 id="cart-total">
                 Total: $0.00
             </h2>
-    
+
+
+
             <div class="checkout-box">
+
+
+                <h3>
+                    Complete Purchase
+                </h3>
+
 
                 <input
                     type="email"
                     id="customer-email"
-                    placeholder="Enter your email"
+                    placeholder="Your email address"
                     required
                 >
-            
-                <button id="checkout-btn">
-                    Proceed to Checkout
-                </button>
-            
-            </div>
-    
-        </div>
-    
-    </main>
 
-    <script src="./assets/js/api.js"></script>
-    <script src="./assets/js/cart.js"></script>
+
+
+                <button id="checkout-btn">
+
+                    Proceed to Checkout →
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script src="./assets/js/api.js"></script>
+
+<script src="./assets/js/cart.js"></script>
+
 
 </body>
+
 </html>
