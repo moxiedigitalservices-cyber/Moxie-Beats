@@ -1345,3 +1345,140 @@ nav a{
     letter-spacing:-.5px;
 
 }
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.nav-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+
+.nav-btn:hover{
+
+    background:#00d084;
+
+    color:#000;
+
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 768px){
+    .browse-container{
+
+        width:100%;
+    
+        padding:25px 16px 50px;
+    
+    }
+
+    .browse-hero{
+
+        padding:40px 25px;
+    
+        border-radius:18px;
+    
+    }
+    
+    
+    .browse-hero h1{
+    
+        font-size:2rem;
+    
+    }
+    
+    
+    .browse-hero p{
+    
+        font-size:.95rem;
+    
+    }
+
+    .search-wrapper{
+
+        width:100%;
+    
+    }
+    
+    
+    .search-wrapper input{
+    
+        padding:16px 20px 16px 50px;
+    
+        font-size:16px;
+    
+    }
+
+    #beats-container{
+
+        grid-template-columns:1fr;
+    
+        gap:20px;
+    
+    }
+
+    .wave-player{
+
+        gap:8px;
+    
+    }
+    
+    
+    .play-btn{
+    
+        flex-shrink:0;
+    
+    }
+    
+    
+    .waveform-wrapper{
+    
+        flex:1;
+    
+        min-width:0;
+    
+    }
+
+    .header-actions{
+
+        gap:10px;
+    
+    }
+
+    .cart-btn,
+.nav-btn{
+
+    padding:10px 14px;
+
+    font-size:.9rem;
+
+}
+}
