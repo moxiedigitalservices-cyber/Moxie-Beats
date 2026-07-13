@@ -1,11 +1,11 @@
 let allBeats = [];
 
+const container = document.getElementById("beats-container");
+
 async function loadBeats() {
 
     const res = await fetch(`${API_URL}/beats?featured=true`);
     allBeats = await res.json();
-
-    const container = document.getElementById("beats-container");
 
     container.innerHTML = "";
 
