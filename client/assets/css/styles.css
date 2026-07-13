@@ -124,11 +124,12 @@ nav a{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fill, 360px);
-
-    justify-content:center;
+    grid-template-columns:
+        repeat(auto-fill,minmax(320px,1fr));
 
     gap:30px;
+
+    margin-top:30px;
 
 }
 
@@ -895,16 +896,6 @@ nav a{
 
 
 
-    #beats-container{
-
-        grid-template-columns:1fr;
-
-        gap:20px;
-
-    }
-
-
-
     .beat-card{
 
         width:100%;
@@ -950,5 +941,123 @@ nav a{
     }
 
 
+
+}
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:24px;
+
+}
+
+.view-all{
+
+    color:#00d084;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    font-size:.95rem;
+
+    transition:.25s;
+
+}
+
+.view-all:hover{
+
+    color:#19f2a3;
+
+    transform:translateX(4px);
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.hero-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 28px;
+
+    background:#00d084;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+}
+
+.hero-button:hover{
+
+    background:#00b873;
+
+    transform:translateY(-2px);
+
+}
+
+.browse-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.browse-header h1{
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+.browse-header p{
+
+    color:#9ca3af;
+
+}
+
+.search-wrapper{
+
+    max-width:700px;
+
+    margin:0 auto 25px;
+
+}
+
+.search-wrapper input{
+
+    width:100%;
+
+}
+
+.browse-info{
+
+    margin-bottom:20px;
+
+    color:#9ca3af;
+
+    font-size:.95rem;
 
 }

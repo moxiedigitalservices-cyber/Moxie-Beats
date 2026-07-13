@@ -49,6 +49,9 @@ function renderBeats(beats){
 
 
     container.innerHTML = "";
+    
+    document.getElementById("results-count").textContent =
+    `${beats.length} Beat${beats.length === 1 ? "" : "s"}`;
 
 
     beats.forEach(beat=>{
