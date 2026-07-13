@@ -85,9 +85,10 @@ document
 
             beat.artist.toLowerCase().includes(value)
 
-            ||
-
-            beat.genre.toLowerCase().includes(value)
+            || 
+            (beat.genre || "")
+            .toLowerCase()
+            .includes(value)
 
         );
 
