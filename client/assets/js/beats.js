@@ -49,9 +49,40 @@ function renderBeats(beats){
 
 
     container.innerHTML = "";
-    
-    document.getElementById("results-count").textContent =
-    `${beats.length} Beat${beats.length === 1 ? "" : "s"}`;
+
+const count =
+document.getElementById("results-count");
+
+count.innerHTML =
+
+`🎵 Showing <strong>${beats.length}</strong> premium beat${beats.length===1?"":"s"}`;
+
+if(beats.length === 0){
+
+    container.innerHTML = `
+
+        <div class="empty-state">
+
+            <h2>
+
+                No beats found
+
+            </h2>
+
+            <p>
+
+                Try searching by another title,
+                artist or genre.
+
+            </p>
+
+        </div>
+
+    `;
+
+    return;
+
+}
 
 
     beats.forEach(beat=>{
