@@ -1,91 +1,44 @@
-const container = document.getElementById("beats");
+// ==========================================
+// MOXXIE CUSTOMER BEATS PAGE
+// ==========================================
 
-async function loadBeats(){
 
-    const res = await fetch(`${API_URL}/beats`);
+let allBeats = [];
 
-    const beats = await res.json();
 
-    container.innerHTML = "";
+const container =
+document.getElementById(
+    "beats-container"
+);
 
-    beats.forEach(beat=>{
 
-        container.innerHTML+=`
-
-        <div class="beat">
-
-        <img
-        src="${
-            beat.artwork ||
-            "assets/images/moxxie-logo.png"
-        }">
-
-        <div class="info">
-
-        ${
-            beat.isFeatured
-            ?
-            '<span class="featured">FEATURED</span>'
-            :
-            ''
-        }
-
-        <h3>${beat.title}</h3>
-
-        <p>${beat.artist}</p>
-
-        <p>$${(beat.price/100).toFixed(2)}</p>
-
-        <div class="actions">
-
-        <button>Edit</button>
-
-        <button class="delete">
-
-        Delete
-
-        </button>
-
-        </div>
-
-        </div>
-
-        </div>
-
-        `;
-
-    });
-
-}
-
-loadBeats();
 
 async function loadAllBeats(){
-
 
     try{
 
 
-        const beats =
+        allBeats =
         await api.get(
             "/beats"
         );
 
 
         renderBeats(
-            beats
+            allBeats
         );
 
 
     }
 
-
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Loading beats failed:",
+            error
+        );
 
     }
-
 
 }
 
@@ -95,82 +48,33 @@ async function loadAllBeats(){
 function renderBeats(beats){
 
 
-    const container =
-    document.getElementById(
-        "beats-container"
-    );
+    container.innerHTML = "";
 
 
-    container.innerHTML =
+    beats.forEach(beat=>{
 
 
-    beats.map(beat=>`
+        container.innerHTML +=
+        createBeatCard(beat);
 
 
-    <div class="beat-card">
+    });
 
 
-        <img 
-        src="${beat.coverArt}"
-        >
+
+    setTimeout(()=>{
 
 
-        <h3>
-
-            ${beat.title}
-
-        </h3>
+        initializePlayers(
+            beats
+        );
 
 
-        <p>
-
-            ${beat.artist}
-
-        </p>
-
-<div 
-class="waveform"
-id="wave-${beat._id}">
-</div>
-
-        <p>
-
-            $${(
-                beat.price/100
-            ).toFixed(2)}
-
-        </p>
-
-
-        <button>
-
-            Preview
-
-        </button>
-
-
-        <button>
-
-            Add To Cart
-
-        </button>
-
-
-    </div>
-
-
-    `).join("");
+    },100);
 
 
 }
 
-beats.forEach(beat=>{
 
-    createWavePlayer(
-        `wave-${beat._id}`,
-        beat.previewUrl
-    );
-
-});
 
 loadAllBeats();
