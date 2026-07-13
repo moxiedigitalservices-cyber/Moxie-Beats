@@ -102,74 +102,85 @@ function removeFromCart(id){
 
 
 
-document
-.getElementById("checkout-btn")
-.addEventListener("click", async ()=>{
+const checkoutBtn =
+document.getElementById("checkout-btn");
 
 
-    const cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+if(checkoutBtn){
+
+    checkoutBtn.addEventListener("click", async ()=>{
 
 
-    if(cart.length === 0){
-
-        alert("Your cart is empty.");
-
-        return;
-
-    }
-
-    const email =
-    document.getElementById("customer-email").value;
+        const cart =
+            JSON.parse(localStorage.getItem("cart")) || [];
 
 
-if(!email){
+        if(cart.length === 0){
 
-    alert("Please enter your email.");
+            alert("Your cart is empty.");
 
-    return;
+            return;
 
-}
-
-
-    const res = await fetch(
-        `${API_URL}/cart/checkout`,
-        {
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify({
-
-                beats:cart,
-            
-                email
-            
-            })
         }
-    );
 
 
-    const data = await res.json();
+        const email =
+        document.getElementById("customer-email").value;
 
 
-if(!data.url){
+        if(!email){
 
-    alert(
-        data.message || "Checkout failed"
-    );
+            alert("Please enter your email.");
 
-    return;
+            return;
+
+        }
+
+
+        const res = await fetch(
+
+            `${API_URL}/cart/checkout`,
+
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    beats:cart,
+
+                    email
+
+                })
+
+            }
+
+        );
+
+
+        const data = await res.json();
+
+
+        if(!data.url){
+
+            alert(
+                data.message || "Checkout failed"
+            );
+
+            return;
+
+        }
+
+
+        window.location.href = data.url;
+
+
+    });
 
 }
-
-
-window.location.href = data.url;
-
-
-});
 
 
 
