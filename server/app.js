@@ -13,11 +13,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../client")));
 
 // Routes
+app.use("/api/auth", require("./routes/auth"));
 app.use("/api/beats", require("./routes/beats"));
 app.use("/api/admin", require("./routes/admin"));
 app.use("/api/cart", require("./routes/checkout"));
 app.use("/api/paynow", require("./routes/paynow"));
 app.use("/api/download", require("./routes/download"));
+const analyticsRoutes = require("./routes/analytics");
+app.use("/api/analytics", analyticsRoutes);
 
 // Test Route
 app.get("/api/health", (req, res) => {

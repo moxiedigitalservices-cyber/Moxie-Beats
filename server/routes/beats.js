@@ -4,18 +4,45 @@ const router = express.Router();
 const Beat = require("../models/Beat");
 
 // GET all beats (or featured only)
-router.get("/", async (req, res) => {
-    try {
-        const filter = req.query.featured === "true"
-            ? { isFeatured: true }
-            : {};
+router.get("/", async(req,res)=>{
 
-        const beats = await Beat.find(filter);
+    try{
+
+        const filter = {
+            isPublished:true
+        };
+
+
+        if(req.query.featured === "true"){
+
+            filter.isFeatured = true;
+
+        }
+
+
+        const beats = await Beat.find(filter)
+        .sort({
+            createdAt:-1
+        });
+
 
         res.json(beats);
-    } catch (error) {
-        res.status(500).json({ message: "Server error" });
+
+
     }
+
+    catch(error){
+
+        console.error(error);
+
+        res.status(500).json({
+
+            message:"Failed to load beats"
+
+        });
+
+    }
+
 });
 
 // GET single beat

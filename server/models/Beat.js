@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 
 const LicenseSchema = new mongoose.Schema({
 
@@ -25,84 +26,118 @@ const LicenseSchema = new mongoose.Schema({
 
 const BeatSchema = new mongoose.Schema({
 
-    title: {
-        type: String,
-        required: true
+    title:{
+        type:String,
+        required:true,
+        trim:true
     },
 
-    slug: {
-        type: String,
-        unique: true
+    slug:{
+        type:String,
+        unique:true
     },
 
-    artwork:{
+    artist:{
+        type:String,
+        required:true
+    },
+
+    producer:{
+        type:String,
+        default:"Moxxie"
+    },
+
+    genre:{
+        type:String,
+        default:"Unknown"
+    },
+
+    subGenre:{
         type:String,
         default:""
     },
 
-    artist: String,
-
-    price: {
-        type: Number,
-        required: true,
-        default: 0
+    bpm:{
+        type:Number,
+        default:0
     },
 
-    genre: String,
-
-    subGenre: String,
-
-    mood: String,
-
-    bpm: Number,
-
-    key: String,
-
-    duration: String,
-
-    tags: [String],
-
-    coverImage: String,
-
-    previewUrl: String,
-
-    fullUrl: String,
-
-    licenses: [LicenseSchema],
-
-    plays: {
-        type: Number,
-        default: 0
+    key:{
+        type:String,
+        default:""
     },
 
-    likes: {
-        type: Number,
-        default: 0
+    mood:{
+        type:String,
+        default:""
     },
 
-    downloads: {
-        type: Number,
-        default: 0
+    description:{
+        type:String,
+        default:""
     },
 
-    isFeatured: {
-        type: Boolean,
-        default: false
+    tags:[String],
+
+    duration:{
+        type:Number,
+        default:30
     },
 
-    isPublished: {
-        type: Boolean,
-        default: true
+    price:{
+        type:Number,
+        required:true
     },
 
-    isExclusiveSold: {
-        type: Boolean,
-        default: false
+    previewUrl:{
+        type:String,
+        required:true
+    },
+
+    fullUrl:{
+        type:String,
+        required:true
+    },
+
+    coverArt:{
+        type:String,
+        default:"/assets/images/moxxie-logo.png"
+    },
+
+    downloads:{
+        type:Number,
+        default:0
+    },
+
+    isFeatured:{
+        type:Boolean,
+        default:false
+    },
+
+    isPublished:{
+        type:Boolean,
+        default:true
     }
 
 },
 {
     timestamps:true
+});
+
+BeatSchema.pre("save", async function(){
+
+    if(this.isModified("title")){
+
+        this.slug = slugify(
+            this.title,
+            {
+                lower:true,
+                strict:true
+            }
+        );
+
+    }
+
 });
 
 module.exports = mongoose.model("Beat", BeatSchema);
