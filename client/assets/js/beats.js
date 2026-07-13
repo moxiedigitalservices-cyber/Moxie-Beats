@@ -112,3 +112,61 @@ if(beats.length === 0){
 
 
 loadAllBeats();
+
+// ==========================================
+// SEARCH
+// ==========================================
+
+const searchInput = document.getElementById("search");
+
+if(searchInput){
+
+    searchInput.addEventListener("input", e=>{
+
+        const value = e.target.value
+            .trim()
+            .toLowerCase();
+
+        const filtered = allBeats.filter(beat=>
+
+            (beat.title || "")
+                .toLowerCase()
+                .includes(value)
+
+            ||
+
+            (beat.artist || "")
+                .toLowerCase()
+                .includes(value)
+
+            ||
+
+            (beat.genre || "")
+                .toLowerCase()
+                .includes(value)
+
+            ||
+
+            (beat.producer || "")
+                .toLowerCase()
+                .includes(value)
+
+            ||
+
+            (beat.mood || "")
+                .toLowerCase()
+                .includes(value)
+
+            ||
+
+            (beat.key || "")
+                .toLowerCase()
+                .includes(value)
+
+        );
+
+        renderBeats(filtered);
+
+    });
+
+}

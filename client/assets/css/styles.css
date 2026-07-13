@@ -1252,3 +1252,20 @@ nav a{
     margin-bottom:15px;
 
 }
+
+.beats-page{
+
+    width:100%;
+
+}
+
+
+.browse-container{
+
+    width:min(1400px,92%);
+
+    margin:0 auto;
+
+    padding:40px 0 80px;
+
+}

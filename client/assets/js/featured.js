@@ -70,29 +70,5 @@ function renderBeats(beats){
 }
 
 document
-.getElementById("search")
-.addEventListener("input", e=>{
-
-    const value =
-        e.target.value.toLowerCase();
-
-    const filtered =
-        allBeats.filter(beat=>
-
-            beat.title.toLowerCase().includes(value)
-
-            ||
-
-            beat.artist.toLowerCase().includes(value)
-
-            || 
-            (beat.genre || "")
-            .toLowerCase()
-            .includes(value)
-
-        );
-
-    renderBeats(filtered);
-
-});
+.getElementById("search");
 
