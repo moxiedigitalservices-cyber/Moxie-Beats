@@ -1040,15 +1040,53 @@ nav a{
 
 .search-wrapper{
 
+    position:relative;
+
     max-width:700px;
 
-    margin:0 auto 25px;
+    margin:35px auto;
+
+}
+
+.search-icon{
+
+    position:absolute;
+
+    left:20px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    opacity:.6;
+
+    font-size:1rem;
 
 }
 
 .search-wrapper input{
 
     width:100%;
+
+    padding:18px 24px 18px 55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#161616;
+
+    color:#fff;
+
+    border:2px solid transparent;
+
+    transition:.25s;
+
+}
+
+.search-wrapper input:focus{
+
+    border-color:#00d084;
 
 }
 
@@ -1059,5 +1097,29 @@ nav a{
     color:#9ca3af;
 
     font-size:.95rem;
+
+}
+
+.browse-info{
+
+    margin:20px 0 30px;
+
+}
+
+#results-count{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:#151515;
+
+    border:1px solid #262626;
+
+    color:#bdbdbd;
+
+    font-weight:600;
 
 }
