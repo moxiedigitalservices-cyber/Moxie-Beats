@@ -1,5 +1,15 @@
 async function loadCart(){
 
+    const cartContainer =
+document.getElementById("cart-items");
+
+
+if(!cartContainer){
+
+    return;
+
+}
+
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const container = document.getElementById("cart-container");
@@ -184,4 +194,8 @@ if(checkoutBtn){
 
 
 
-loadCart();
+if(document.getElementById("cart-items")){
+
+    loadCart();
+
+}
