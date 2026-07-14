@@ -10,7 +10,7 @@ if(!cartContainer){
 
 }
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cart = getCart();
 
     const container = document.getElementById("cart-container");
     const totalElement = document.getElementById("cart-total");
@@ -93,7 +93,7 @@ if(!cartContainer){
 function removeFromCart(id){
 
     let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+        getCart();
 
 
     cart =
@@ -122,7 +122,7 @@ if(checkoutBtn){
 
 
         const cart =
-            JSON.parse(localStorage.getItem("cart")) || [];
+            getCart();
 
 
         if(cart.length === 0){
