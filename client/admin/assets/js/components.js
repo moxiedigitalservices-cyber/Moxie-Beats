@@ -800,7 +800,7 @@ function renderLayout(title, content){
 
 
         ${createSidebar()}
-
+        <div class="overlay"></div>
 
         <div class="main-content">
 
@@ -823,6 +823,68 @@ function renderLayout(title, content){
 
     `;
 
+    const menuToggle =
+    document.querySelector(".menu-toggle");
+    
+    const sidebar =
+    document.querySelector(".sidebar");
+    
+    const overlay =
+    document.querySelector(".overlay");
+    
+    
+    function closeSidebar(){
+    
+        sidebar.classList.remove("open");
+    
+        overlay.classList.remove("show");
+    
+    }
+    
+    
+    if(menuToggle && sidebar && overlay){
+    
+    
+        menuToggle.addEventListener("click", ()=>{
+    
+            sidebar.classList.toggle("open");
+    
+            overlay.classList.toggle("show");
+    
+        });
+    
+    
+    
+        overlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+    
+    
+    
+        document
+        .querySelectorAll(".sidebar-link")
+        .forEach(link=>{
+    
+    
+            link.addEventListener(
+                "click",
+                ()=>{
+    
+                    if(window.innerWidth <= 768){
+    
+                        closeSidebar();
+    
+                    }
+    
+                }
+            );
+    
+    
+        });
+    
+    
+    }
 
 }
 

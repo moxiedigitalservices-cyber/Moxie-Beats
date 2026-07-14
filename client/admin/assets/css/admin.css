@@ -1759,3 +1759,135 @@ body{
     margin-top:10px;
 
 }
+
+.menu-toggle{
+
+    display:none;
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+    .sidebar{
+
+        position:fixed;
+
+        left:-280px;
+
+        top:0;
+
+        width:260px;
+
+        height:100vh;
+
+        z-index:1000;
+
+        transition:left .3s;
+
+    }
+
+
+    .sidebar.open{
+
+        left:0;
+
+    }
+
+    .content{
+
+        margin-left:0;
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+}
+
+.overlay{
+
+    display:none;
+
+}
+
+
+@media(max-width:768px){
+
+
+    .overlay{
+
+        position:fixed;
+
+        inset:0;
+
+        background:rgba(0,0,0,.6);
+
+        z-index:900;
+
+    }
+
+
+    .overlay.show{
+
+        display:block;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+
+    .sidebar{
+
+        position:fixed;
+
+        top:0;
+
+        left:-280px;
+
+        width:260px;
+
+        height:100vh;
+
+        z-index:1000;
+
+        transition:left .3s ease;
+
+    }
+
+
+    .sidebar.open{
+
+        left:0;
+
+    }
+
+}
