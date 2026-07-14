@@ -1439,7 +1439,7 @@ nav a{
 
     #beats-container{
 
-        grid-template-columns:1fr;
+        grid-template-columns:1fr !important;
     
         gap:20px;
     
@@ -1481,4 +1481,29 @@ nav a{
     font-size:.9rem;
 
 }
+}
+
+@media (max-width:768px){
+
+    .beat-card h2,
+    .beat-card h3{
+
+        font-size:1.2rem;
+
+    }
+
+
+    .beat-card p{
+
+        font-size:1rem;
+
+    }
+
+
+    .artist{
+
+        font-size:.95rem;
+
+    }
+
 }
