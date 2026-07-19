@@ -1782,6 +1782,46 @@ body{
 
 }
 
+.status{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    text-transform:capitalize;
+
+}
+
+.status.paid{
+
+    background:#0f5132;
+
+    color:#4ade80;
+
+}
+
+.status.pending{
+
+    background:#664d03;
+
+    color:#facc15;
+
+}
+
+.status.failed{
+
+    background:#7f1d1d;
+
+    color:#f87171;
+
+}
+
 @media (max-width:768px){
 
     .menu-toggle{

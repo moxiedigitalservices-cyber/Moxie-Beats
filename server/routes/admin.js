@@ -150,11 +150,43 @@ router.delete(
 
 });
 
+// GET BEATS
+
+router.get("/beats", protect, async (req,res)=>{
+
+    try{
+
+        const beats = await Beat.find()
+
+        .sort({
+
+            createdAt:-1
+
+        });
+
+        res.json(beats);
+
+    }
+
+    catch(error){
+
+        res.status(500).json({
+
+            message:"Failed to load beats",
+
+            error:error.message
+
+        });
+
+    }
+
+});
+
 // ==========================================
 // GET ALL ORDERS
 // ==========================================
 
-router.get("/orders", async (req,res)=>{
+router.get("/orders", protect, async (req,res)=>{
 
     try{
 
