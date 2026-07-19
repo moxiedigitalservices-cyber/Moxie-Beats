@@ -6,7 +6,7 @@ async function loadOrders(){
 
         allOrders = await api.get("/admin/orders");
 
-        renderOrders(allOrders);
+        renderOrders();
 
     }
 
@@ -19,10 +19,9 @@ async function loadOrders(){
 }
 
 
+function renderOrders(){
 
-function renderOrders(orders){
-
-    if(!orders.length){
+    if(!allOrders.length){
 
         renderLayout(
 
@@ -61,25 +60,32 @@ function renderOrders(orders){
 
             <h1>Orders</h1>
 
-            <input
-                id="order-search"
-                class="search-input"
-                type="text"
-                placeholder="Search customer email...">
+            <div class="page-actions">
 
-            <select id="status-filter" class="filter-select">
+                <input
+                    id="order-search"
+                    class="search-input"
+                    type="text"
+                    placeholder="Search customer email...">
 
-                <option value="all">All</option>
+                <select
+                    id="status-filter"
+                    class="filter-select">
 
-                <option value="paid">Paid</option>
+                    <option value="all">All</option>
 
-                <option value="pending">Pending</option>
+                    <option value="paid">Paid</option>
 
-                <option value="failed">Failed</option>
+                    <option value="pending">Pending</option>
 
-            </select>
+                    <option value="failed">Failed</option>
+
+                </select>
+
+            </div>
 
         </div>
+
 
         <div class="panel">
 
@@ -103,50 +109,7 @@ function renderOrders(orders){
 
                 </thead>
 
-                <tbody>
-
-                    ${orders.map(order=>`
-
-                        <tr class="order-row" data-id="${order._id}">
-
-                            <td>${order.customerEmail}</td>
-
-                            <td>
-
-                                ${(order.beats || [])
-                                    .map(b=>b.title)
-                                    .join(", ")}
-
-                            </td>
-
-                            <td>
-
-                                $${(order.total/100).toFixed(2)}
-
-                            </td>
-
-                            <td>
-
-                                <span class="status ${order.status}">
-
-                                    ${order.status}
-
-                                </span>
-
-                            </td>
-
-                            <td>
-
-                                ${new Date(order.createdAt)
-                                    .toLocaleDateString()}
-
-                            </td>
-
-                        </tr>
-
-                    `).join("")}
-
-                </tbody>
+                <tbody id="orders-body"></tbody>
 
             </table>
 
@@ -156,75 +119,175 @@ function renderOrders(orders){
 
     );
 
+
+    renderOrderRows(allOrders);
+
+
     document
-.getElementById("order-search")
-.addEventListener(
-    "input",
-    filterOrders
-);
+    .getElementById("order-search")
+    .addEventListener("input", filterOrders);
 
-document
-.getElementById("status-filter")
-.addEventListener(
-    "change",
-    filterOrders
-);
 
-document
-.querySelectorAll(".order-row")
-.forEach(row=>{
+    document
+    .getElementById("status-filter")
+    .addEventListener("change", filterOrders);
 
-    row.addEventListener("click", ()=>{
+}
 
-        const id =
-        row.dataset.id;
 
-        openOrderModal(id);
+
+function renderOrderRows(orders){
+
+    const tbody =
+    document.getElementById("orders-body");
+
+    if(!tbody) return;
+
+
+    if(!orders.length){
+
+        tbody.innerHTML = `
+
+        <tr>
+
+            <td colspan="5" class="no-results">
+
+                No matching orders found.
+
+            </td>
+
+        </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    tbody.innerHTML =
+    orders.map(order=>`
+
+        <tr class="order-row" data-id="${order._id}">
+
+            <td>${order.customerEmail}</td>
+
+            <td>
+
+                ${(order.beats || [])
+
+                    .map(beat=>beat.title)
+
+                    .join(", ")}
+
+            </td>
+
+            <td>
+
+                $${(order.total/100).toFixed(2)}
+
+            </td>
+
+            <td>
+
+                <span class="status ${order.status}">
+
+                    ${order.status}
+
+                </span>
+
+            </td>
+
+            <td>
+
+                ${new Date(order.createdAt)
+
+                    .toLocaleDateString()}
+
+            </td>
+
+        </tr>
+
+    `).join("");
+
+
+    document
+    .querySelectorAll(".order-row")
+    .forEach(row=>{
+
+        row.addEventListener("click", ()=>{
+
+            const id = row.dataset.id;
+
+            openOrderModal(id);
+
+        });
 
     });
 
-});
-
 }
+
+
 
 function filterOrders(){
 
     const search =
-        document.getElementById("order-search")
-        .value
-        .toLowerCase();
+    document
+    .getElementById("order-search")
+    .value
+    .toLowerCase();
+
 
     const status =
-        document.getElementById("status-filter")
-        .value;
+    document
+    .getElementById("status-filter")
+    .value;
+
 
     const filtered =
-        allOrders.filter(order=>{
+    allOrders.filter(order=>{
 
-            const matchesSearch =
-                (order.customerEmail || "")
-                .toLowerCase()
-                .includes(search);
+        const matchesSearch =
 
-            const matchesStatus =
-                status === "all"
-                ||
-                order.status === status;
+            (order.customerEmail || "")
 
-            return matchesSearch && matchesStatus;
+            .toLowerCase()
 
-        });
+            .includes(search);
 
-    renderOrders(filtered);
+
+        const matchesStatus =
+
+            status === "all"
+
+            ||
+
+            order.status === status;
+
+
+        return matchesSearch && matchesStatus;
+
+    });
+
+
+    renderOrderRows(filtered);
 
 }
+
+
 
 function openOrderModal(id){
 
     const order =
-    allOrders.find(o=>o._id===id);
+    allOrders.find(
+
+        o=>o._id===id
+
+    );
+
 
     if(!order) return;
+
 
     alert(
 
@@ -235,12 +298,17 @@ Amount: $${(order.total/100).toFixed(2)}
 Status: ${order.status}
 
 Purchased:
+
 ${(order.beats || [])
-.map(b=>"- "+b.title)
+
+.map(beat=>"- "+beat.title)
+
 .join("\n")}`
 
     );
 
 }
+
+
 
 loadOrders();

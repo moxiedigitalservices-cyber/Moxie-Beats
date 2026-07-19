@@ -1822,6 +1822,18 @@ body{
 
 }
 
+.no-results{
+
+    text-align:center;
+
+    padding:40px;
+
+    color:#9ca3af;
+
+    font-style:italic;
+
+}
+
 @media (max-width:768px){
 
     .menu-toggle{
