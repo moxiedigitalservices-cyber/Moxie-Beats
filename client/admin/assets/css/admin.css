@@ -24,11 +24,19 @@ body{
 
 .sidebar{
 
-    width:240px;
+    position: fixed;
 
-    background:var(--sidebar);
+    top: 0;
 
-    padding:30px;
+    left: 0;
+
+    width: 260px;
+
+    height: 100vh;
+
+    overflow-y: auto;
+
+    z-index: 1000;
 
 }
 
@@ -1102,11 +1110,13 @@ body{
 
 .main-content{
 
-    flex:1;
+    margin-left: 260px;
 
-    min-width:0;
+    min-height: 100vh;
 
-    background:#0d0d0d;
+    display: flex;
+
+    flex-direction: column;
 
 }
 
@@ -1114,19 +1124,17 @@ body{
 
 .topbar{
 
-    height:80px;
+    position: fixed;
 
-    padding:0 35px;
+    top: 0;
 
-    background:#171717;
+    left: 260px;
 
-    border-bottom:1px solid #292929;
+    right: 0;
 
-    display:flex;
+    height: 72px;
 
-    align-items:center;
-
-    justify-content:space-between;
+    z-index: 999;
 
 }
 
@@ -1178,7 +1186,13 @@ body{
 
 .page-content{
 
-    padding:35px;
+    margin-top: 72px;
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+    min-height: calc(100vh - 72px);
 
 }
 
@@ -1991,6 +2005,7 @@ body{
     .topbar{
 
         padding:15px;
+        left: 0;
 
     }
 

@@ -459,21 +459,65 @@ UI.Modal = function({
 
 UI.Toast = {
 
+    show(message, type = "success"){
+
+        const container =
+            document.getElementById("toast-container");
+
+        if(!container) return;
+
+        const toast =
+            document.createElement("div");
+
+        toast.className =
+            `toast ${type}`;
+
+        toast.textContent =
+            message;
+
+        container.appendChild(toast);
+
+        requestAnimationFrame(()=>{
+
+            toast.classList.add("show");
+
+        });
+
+        setTimeout(()=>{
+
+            toast.classList.remove("show");
+
+            setTimeout(()=>{
+
+                toast.remove();
+
+            },300);
+
+        },3000);
+
+    },
+
     success(message){
 
-        alert("✅ " + message);
+        this.show(message,"success");
 
     },
 
     error(message){
 
-        alert("❌ " + message);
+        this.show(message,"error");
 
     },
 
     warning(message){
 
-        alert("⚠️ " + message);
+        this.show(message,"warning");
+
+    },
+
+    info(message){
+
+        this.show(message,"info");
 
     }
 
